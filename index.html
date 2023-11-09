@@ -9,9 +9,9 @@
             justify-content: space-between;
         }
         #gallery img {
-            width: 23%;
+            width: 23%; /* Set an initial width for each image */
             height: auto;
-            margin: 1%;
+            margin: 1%; /* Add a little margin between images */
         }
         #fullscreen {
             display: none;
@@ -20,7 +20,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0,0,0,0.8);
         }
         #fullscreen img {
             position: absolute;
@@ -35,9 +35,9 @@
             align-items: center;
         }
         #header img {
-            width: 20px;
+            width: 20px; /* Set the logo size to 20x20 pixels */
             height: 20px;
-            margin-right: 10px;
+            margin-right: 10px; /* Add some margin between the logo and text */
         }
     </style>
 </head>
@@ -53,32 +53,26 @@
         <img src="" alt="Full Screen Image">
     </div>
     <script>
-        // Create a function to fetch and add gallery images
-        function addGalleryImages() {
+        // Generate gallery images using JavaScript
+        function generateGallery() {
             const gallery = document.getElementById('gallery');
-            fetch('https://api.github.com/repos/Z3RG7/Z3RG7.github.io/contents/images')
-                .then(response => response.json())
-                .then(data => {
-                    data.forEach(imageData => {
-                        if (imageData.name.startsWith('image')) { // Filter images by filename pattern
-                            const img = document.createElement('img');
-                            img.src = imageData.download_url;
-                            img.onclick = function() {
-                                document.getElementById('fullscreen').style.display = 'block';
-                                document.getElementById('fullscreen').children[0].src = this.src;
-                            };
-                            gallery.appendChild(img);
-                        }
-                    });
-                });
+            const imageCount = <?php echo count(glob("images/*.png")); ?>; // Get the number of images in the "images" folder
+            for (let i = 1; i <= imageCount; i++) {
+                let img = document.createElement('img');
+                img.src = 'images/image' + i + '.png';
+                img.onclick = function() {
+                    document.getElementById('fullscreen').style.display = 'block';
+                    document.getElementById('fullscreen').children[0].src = this.src;
+                };
+                gallery.appendChild(img);
+            }
         }
 
-        // Call the function to add gallery images
-        addGalleryImages();
-        
+        generateGallery(); // Call the function to generate the gallery images.
+
         // Add fullscreen close functionality
         document.getElementById('fullscreen').onclick = function() {
-            this.style display = 'none';
+            this.style.display = 'none';
         };
     </script>
 </body>
