@@ -4,8 +4,14 @@
     <title>Josh's Art Portfolio</title>
     <style>
         #gallery img {
+<<<<<<< HEAD
             width: 200px;
             height: auto;
+=======
+            width: 23%; /* Set an initial width for each image */
+            height: auto;
+            margin: 1%; /* Add a little margin between images */
+>>>>>>> parent of 76fd020 (2.2)
         }
         #fullscreen {
             display: none;
@@ -24,6 +30,18 @@
             max-width: 90%;
             max-height: 90%;
         }
+<<<<<<< HEAD
+=======
+        #header {
+            display: flex;
+            align-items: center;
+        }
+        #header img {
+            width: 20px; /* Set the logo size to 20x20 pixels */
+            height: 20px;
+            margin-right: 10px; /* Add some margin between the logo and text */
+        }
+>>>>>>> parent of 76fd020 (2.2)
     </style>
 </head>
 <body>
@@ -38,6 +56,7 @@
         <img src="" alt="Full Screen Image">
     </div>
     <script>
+<<<<<<< HEAD
         // Generate gallery images using JavaScript
         function generateGallery() {
             const gallery = document.getElementById('gallery');
@@ -54,6 +73,19 @@
 
         generateGallery(); // Call the function to generate the gallery images.
 
+=======
+        // Generate gallery images
+        for (let i = 1; i <= 20; i++) {
+            let img = document.createElement('img');
+            img.src = 'images/image' + i + '.png';
+            img.onclick = function() {
+                document.getElementById('fullscreen').style.display = 'block';
+                document.getElementById('fullscreen').children[0].src = this.src;
+            };
+            document.getElementById('gallery').appendChild(img);
+        }
+
+>>>>>>> parent of 76fd020 (2.2)
         // Add fullscreen close functionality
         document.getElementById('fullscreen').onclick = function() {
             this.style.display = 'none';
