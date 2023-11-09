@@ -1,64 +1,107 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Your Name - Art Portfolio</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
+  <title>Your Name - Art Portfolio</title>
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
 
-        #header {
-            text-align: center;
-            padding: 20px;
-        }
+    #header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 80px;
+      background-color: #333;
+      color: #fff;
+    }
 
-        #logo {
-            max-width: 100%;
-            height: auto;
-        }
+    #logo {
+      height: 50px;
+      margin-right: 20px;
+    }
 
-        #art-collage {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+    h1 {
+      font-size: 28px;
+    }
 
-        .art-piece {
-            margin: 5px;
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
+    #art-collage {
+      display: flex;  
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 80px);
+    }
+
+    .art-piece {
+      width: calc(100% / 5); 
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    .full-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .full-screen img {
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 28px;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
 </head>
+
 <body>
 
-<div id="header">
-    <img id="logo" src="images/logo.png" alt="Your Name Logo">
-</div>
+  <div id="header">
+    <img id="logo" src="images/logo.png">
+    <h1>Your Name</h1> 
+  </div>
 
-<div id="art-collage">
+  <div id="art-collage">
     <img class="art-piece" src="images/image1.png" alt="Art Piece 1">
     <img class="art-piece" src="images/image2.png" alt="Art Piece 2">
-    <img class="art-piece" src="images/image3.png" alt="Art Piece 3">
-    <img class="art-piece" src="images/image4.png" alt="Art Piece 4">
-    <img class="art-piece" src="images/image5.png" alt="Art Piece 5">
-    <img class="art-piece" src="images/image6.png" alt="Art Piece 6">
-    <img class="art-piece" src="images/image7.png" alt="Art Piece 7">
-    <img class="art-piece" src="images/image8.png" alt="Art Piece 8">
-    <img class="art-piece" src="images/image9.png" alt="Art Piece 9">
-    <img class="art-piece" src="images/image10.png" alt="Art Piece 10">
-    <img class="art-piece" src="images/image11.png" alt="Art Piece 11">
-    <img class="art-piece" src="images/image12.png" alt="Art Piece 12">
-    <img class="art-piece" src="images/image13.png" alt="Art Piece 13">
-    <img class="art-piece" src="images/image14.png" alt="Art Piece 14">
-    <img class="art-piece" src="images/image15.png" alt="Art Piece 15">
-    <img class="art-piece" src="images/image16.png" alt="Art Piece 16">
-    <img class="art-piece" src="images/image17.png" alt="Art Piece 17">
-    <img class="art-piece" src="images/image18.png" alt="Art Piece 18">
-    <img class "art-piece" src="images/image19.png" alt="Art Piece 19">
+    ...
     <img class="art-piece" src="images/image20.png" alt="Art Piece 20">
-</div>
+  </div>
+
+  <script>
+    const artPieces = document.querySelectorAll('.art-piece');
+
+    artPieces.forEach(piece => {
+      piece.addEventListener('click', () => {
+        const img = piece.cloneNode(); 
+        img.classList.add('full-screen');
+        document.body.appendChild(img);
+
+        const closeBtn = document.createElement('div');
+        closeBtn.classList.add('close-btn');
+        closeBtn.textContent = 'X';
+        closeBtn.addEventListener('click', () => {
+          document.body.removeChild(img);
+        })
+        img.appendChild(closeBtn);
+      });
+    });
+  </script>
 
 </body>
 </html>
