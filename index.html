@@ -1,96 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Art Portfolio</title>
+    <title>Your Name - Art Portfolio</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
             margin: 0;
             padding: 0;
         }
 
-        header {
-            background-color: #333;
-            color: #fff;
+        #header {
             text-align: center;
             padding: 20px;
         }
 
-        h1 {
-            margin: 0;
+        #logo {
+            max-width: 100%;
+            height: auto;
         }
 
-        .gallery {
+        #art-collage {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            padding: 20px;
         }
 
-        .artwork {
-            margin: 10px;
-            border: 1px solid #ddd;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .image-container {
-            display: inline-block;
-            margin: 0;
-            padding: 0;
-        }
-
-        .artwork img,
-        .image-container img {
+        .art-piece {
+            margin: 5px;
             max-width: 100%;
             height: auto;
-            display: block;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Your Art Portfolio</h1>
-    </header>
-    
-    <div class="gallery">
-        <!-- Artwork 1 -->
-        <div class="artwork">
-            <img src="artwork1.jpg" alt="Artwork 1">
-        </div>
-        
-        <!-- Artwork 2 -->
-        <div class="artwork">
-            <img src="artwork2.jpg" alt="Artwork 2">
-        </div>
-    </div>
-    
-    <div id="image-gallery"></div>
-    <script>
-        // Fetch and display images from your GitHub repo
-        async function fetchAndDisplayImages() {
-            const response = await fetch('https://api.github.com/repos/Z3RG7/Z3RG7.github.io/contents/');
-            const data = await response.json();
 
-            const imageGallery = document.getElementById('image-gallery');
+<div id="header">
+    <img id="logo" src="images/logo.png" alt="Your Name Logo">
+</div>
 
-            data.forEach(file => {
-                if (file.type === 'file' && /\.(jpg|jpeg|png|gif)$/i.test(file.name)) {
-                    const imageContainer = document.createElement('div');
-                    imageContainer.className = 'image-container';
-                    const image = document.createElement('img');
-                    image.src = file.download_url;
-                    imageContainer.appendChild(image);
-                    imageGallery.appendChild(imageContainer);
-                }
-            });
-        }
+<div id="art-collage">
+    <img class="art-piece" src="images/image1.png" alt="Art Piece 1">
+    <img class="art-piece" src="images/image2.png" alt="Art Piece 2">
+    <img class="art-piece" src="images/image3.png" alt="Art Piece 3">
+    <img class="art-piece" src="images/image4.png" alt="Art Piece 4">
+    <img class="art-piece" src="images/image5.png" alt="Art Piece 5">
+    <img class="art-piece" src="images/image6.png" alt="Art Piece 6">
+    <img class="art-piece" src="images/image7.png" alt="Art Piece 7">
+    <img class="art-piece" src="images/image8.png" alt="Art Piece 8">
+    <img class="art-piece" src="images/image9.png" alt="Art Piece 9">
+    <img class="art-piece" src="images/image10.png" alt="Art Piece 10">
+    <img class="art-piece" src="images/image11.png" alt="Art Piece 11">
+    <img class="art-piece" src="images/image12.png" alt="Art Piece 12">
+    <img class="art-piece" src="images/image13.png" alt="Art Piece 13">
+    <img class="art-piece" src="images/image14.png" alt="Art Piece 14">
+    <img class="art-piece" src="images/image15.png" alt="Art Piece 15">
+    <img class="art-piece" src="images/image16.png" alt="Art Piece 16">
+    <img class="art-piece" src="images/image17.png" alt="Art Piece 17">
+    <img class="art-piece" src="images/image18.png" alt="Art Piece 18">
+    <img class "art-piece" src="images/image19.png" alt="Art Piece 19">
+    <img class="art-piece" src="images/image20.png" alt="Art Piece 20">
+</div>
 
-        // Add more artwork items as needed
-
-        fetchAndDisplayImages();
-    </script>
 </body>
 </html>
