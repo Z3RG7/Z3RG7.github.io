@@ -103,31 +103,35 @@
 
   <script>
     
-    function showFullScreen(img) {
+function showFullScreen(img) {
 
-      // Create full screen div
-      let fullScreen = document.createElement('div');
-      fullScreen.classList.add('full-screen');
+  // Create full screen div
+  let fullScreen = document.createElement('div');
+  fullScreen.classList.add('full-screen');
 
-      // Append original image 
-      let fullScreenImg = img.cloneNode();
-      fullScreen.appendChild(fullScreenImg);
+  // Append original image
+  let fullScreenImg = img.cloneNode(); 
+  fullScreen.appendChild(fullScreenImg);
+  
+  // Create close button
+  let closeBtn = document.createElement('div');
+  closeBtn.classList.add('close-btn');
+  closeBtn.textContent = 'X';
 
-      // Create close button
-      let close = document.createElement('div');
-      close.classList.add('close-btn');
-      close.textContent = 'X';
-      close.addEventListener('click', closeFullScreen);
-      fullScreen.appendChild(close);
+  // Add click handler to close button
+  closeBtn.addEventListener('click', closeFullScreen);
+  
+  // Append close button to full screen div
+  fullScreen.appendChild(closeBtn);
 
-      // Append to body and show
-      document.body.appendChild(fullScreen);
+  // Append full screen div to body
+  document.body.appendChild(fullScreen);
 
-      function closeFullScreen() {
-        document.body.removeChild(fullScreen);
-      }
+  function closeFullScreen() {
+    document.body.removeChild(fullScreen); 
+  }
 
-    }
+}
 
   </script>
 
