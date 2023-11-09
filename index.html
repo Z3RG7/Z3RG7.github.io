@@ -1,139 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Your Name - Art Portfolio</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-    
-    #header {
-      background-color: #333;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      padding: 20px;
-    }
-    
-    #logo {
-      height: 50px;
-      margin-right: 20px;
-    }
-    
-    h1 {
-      margin: 0;
-    }
-    
-    #art-collage {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 20px;
-    }
-    
-    .art-piece {
-      width: calc(100% / 5);
-      margin-bottom: 20px;
-      cursor: pointer;
-    }
-
-    .full-screen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: black;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .full-screen img {
-      max-width: 90%;
-      max-height: 90%;      
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 36px;
-      color: #fff;
-      cursor: pointer;
-    }
-
-  </style>
-
+    <title>Josh's Art Portfolio</title>
+    <style>
+        #gallery img {
+            width: 200px;
+            height: auto;
+        }
+        #fullscreen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+        }
+        #fullscreen img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+        }
+    </style>
 </head>
-
 <body>
+    <header>
+        <img src="images/logo.png" alt="Logo">
+        <h1>Josh</h1>
+    </header>
+    <div id="gallery">
+        <!-- Images will be inserted here by JavaScript -->
+    </div>
+    <div id="fullscreen">
+        <img src="" alt="Full Screen Image">
+    </div>
+    <script>
+        // Generate gallery images
+        for (let i = 1; i <= 20; i++) {
+            let img = document.createElement('img');
+            img.src = 'images/image' + i + '.png';
+            img.onclick = function() {
+                document.getElementById('fullscreen').style.display = 'block';
+                document.getElementById('fullscreen').children[0].src = this.src;
+            };
+            document.getElementById('gallery').appendChild(img);
+        }
 
-  <div id="header">
-    <img id="logo" src="images/logo-small.png" alt="Your Name Logo">
-    <h1>Your Name</h1>
-  </div>
-
-  <div id="art-collage">
-
-    <img class="art-piece" src="images/image1.png" alt="Art Piece 1" onclick="showFullScreen(this)">
-    <img class="art-piece" src="images/image2.png" alt="Art Piece 2" onclick="showFullScreen(this)">
-    <img class="art-piece" src="images/image3.png" alt="Art Piece 3" onclick="showFullScreen(this)">
-    <img class="art-piece" src="images/image4.png" alt="Art Piece 4" onclick="showFullScreen(this)">
-    <img class="art-piece" src="images/image5.png" alt="Art Piece 5" onclick="showFullScreen(this)">
-    <img class="art-piece" src="images/image6.png" alt="Art Piece 6" onclick="showFullScreen(this)">
-    <img class="art-piece" src="images/image7.png" alt="Art Piece 7" onclick="showFullScreen(this)">
-    <img class="art-piece" src="images/image8.png" alt="Art Piece 8" onclick="showFullScreen(this)">
-    <img class="art-piece" src="images/image9.png" alt="Art Piece 9" onclick="showFullScreen(this)">
-    <img class="art-piece" src="images/image10.png" alt="Art Piece 10" onclick="showFullScreen(this)">
-    <img class="art-piece" src="images/image11.png" alt="Art Piece 11" onclick="showFullScreen(this)">
-    <img class="art-piece" src="images/image12.png" alt="Art Piece 12" onclick="showFullScreen(this)">
-    <img class="art-piece" src="images/image13.png" alt="Art Piece 13" onclick="showFullScreen(this)">
-    <img class="art-piece" src="images/image14.png" alt="Art Piece 14" onclick="showFullScreen(this)">
-    <img class="art-piece" src="images/image15.png" alt="Art Piece 15" onclick="showFullScreen(this)">
-    <img class="art-piece" src="images/image16.png" alt="Art Piece 16" onclick="showFullScreen(this)">
-    <img class="art-piece" src="images/image17.png" alt="Art Piece 17" onclick="showFullScreen(this)">
-    <img class="art-piece" src="images/image18.png" alt="Art Piece 18" onclick="showFullScreen(this)">
-    <img class="art-piece" src="images/image19.png" alt="Art Piece 19" onclick="showFullScreen(this)">
-    <img class="art-piece" src="images/image20.png" alt="Art Piece 20" onclick="showFullScreen(this)">
-    <!-- other images... -->
-
-  </div>
-
-  <script>
-    
-function showFullScreen(img) {
-
-  // Create full screen div
-  let fullScreen = document.createElement('div');
-  fullScreen.classList.add('full-screen');
-
-  // Append original image
-  let fullScreenImg = img.cloneNode(); 
-  fullScreen.appendChild(fullScreenImg);
-  
-  // Create close button
-  let closeBtn = document.createElement('div');
-  closeBtn.classList.add('close-btn');
-  closeBtn.textContent = 'X';
-
-  // Add click handler to close button
-  closeBtn.addEventListener('click', closeFullScreen);
-  
-  // Append close button to full screen div
-  fullScreen.appendChild(closeBtn);
-
-  // Append full screen div to body
-  document.body.appendChild(fullScreen);
-
-  function closeFullScreen() {
-    document.body.removeChild(fullScreen); 
-  }
-
-}
-
-  </script>
-
+        // Add fullscreen close functionality
+        document.getElementById('fullscreen').onclick = function() {
+            this.style.display = 'none';
+        };
+    </script>
 </body>
 </html>
