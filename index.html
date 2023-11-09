@@ -6,6 +6,7 @@
         #gallery img {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             width: 200px;
             height: auto;
 =======
@@ -13,6 +14,11 @@
             height: auto;
             margin: 1%; /* Add a little margin between images */
 >>>>>>> parent of 76fd020 (2.2)
+=======
+            width: 23%;
+            height: auto;
+            margin: 1%;
+>>>>>>> parent of 8e8fbb2 (2.3)
 =======
             width: 23%;
             height: auto;
@@ -64,6 +70,7 @@
     <script>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         // Generate gallery images using JavaScript
         function generateGallery() {
             const gallery = document.getElementById('gallery');
@@ -93,6 +100,31 @@
         }
 
 >>>>>>> parent of 76fd020 (2.2)
+=======
+        // Create a function to fetch and add gallery images
+        function addGalleryImages() {
+            const gallery = document.getElementById('gallery');
+            fetch('https://api.github.com/repos/Z3RG7/Z3RG7.github.io/contents/images')
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(imageData => {
+                        if (imageData.name.startsWith('image')) { // Filter images by filename pattern
+                            const img = document.createElement('img');
+                            img.src = imageData.download_url;
+                            img.onclick = function() {
+                                document.getElementById('fullscreen').style.display = 'block';
+                                document.getElementById('fullscreen').children[0].src = this.src;
+                            };
+                            gallery.appendChild(img);
+                        }
+                    });
+                });
+        }
+
+        // Call the function to add gallery images
+        addGalleryImages();
+        
+>>>>>>> parent of 8e8fbb2 (2.3)
 =======
         // Create a function to fetch and add gallery images
         function addGalleryImages() {
