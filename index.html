@@ -2,42 +2,39 @@
 <html>
 <head>
   <title>Your Name - Art Portfolio</title>
-  
+
   <style>
     body {
       margin: 0;
-      padding: 0;
+      font-family: Arial, sans-serif;
     }
-
+    
     #header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 80px;
       background-color: #333;
       color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 20px;
     }
-
+    
     #logo {
       height: 50px;
       margin-right: 20px;
     }
-
+    
     h1 {
-      font-size: 28px;
+      margin: 0;
     }
-
+    
     #art-collage {
-      display: flex;  
+      display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      height: calc(100vh - 80px);
+      padding: 20px;
     }
-
+    
     .art-piece {
-      width: calc(100% / 5); 
-      margin: 5px;
+      width: calc(100% / 5);
+      margin-bottom: 20px;
       cursor: pointer;
     }
 
@@ -47,7 +44,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0,0,0,0.9);
+      background-color: black;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -55,52 +52,83 @@
 
     .full-screen img {
       max-width: 90%;
-      max-height: 90%;
+      max-height: 90%;      
     }
 
     .close-btn {
       position: absolute;
       top: 20px;
       right: 20px;
-      font-size: 28px;
+      font-size: 36px;
       color: #fff;
       cursor: pointer;
     }
+
   </style>
+
 </head>
 
 <body>
 
   <div id="header">
-    <img id="logo" src="images/logo.png">
-    <h1>Your Name</h1> 
+    <img id="logo" src="images/logo-small.png" alt="Your Name Logo">
+    <h1>Your Name</h1>
   </div>
 
   <div id="art-collage">
-    <img class="art-piece" src="images/image1.png" alt="Art Piece 1">
-    <img class="art-piece" src="images/image2.png" alt="Art Piece 2">
-    ...
-    <img class="art-piece" src="images/image20.png" alt="Art Piece 20">
+
+    <img class="art-piece" src="images/image1.png" alt="Art Piece 1" onclick="showFullScreen(this)">
+    <img class="art-piece" src="images/image2.png" alt="Art Piece 2" onclick="showFullScreen(this)">
+    <img class="art-piece" src="images/image3.png" alt="Art Piece 3" onclick="showFullScreen(this)">
+    <img class="art-piece" src="images/image4.png" alt="Art Piece 4" onclick="showFullScreen(this)">
+    <img class="art-piece" src="images/image5.png" alt="Art Piece 5" onclick="showFullScreen(this)">
+    <img class="art-piece" src="images/image6.png" alt="Art Piece 6" onclick="showFullScreen(this)">
+    <img class="art-piece" src="images/image7.png" alt="Art Piece 7" onclick="showFullScreen(this)">
+    <img class="art-piece" src="images/image8.png" alt="Art Piece 8" onclick="showFullScreen(this)">
+    <img class="art-piece" src="images/image9.png" alt="Art Piece 9" onclick="showFullScreen(this)">
+    <img class="art-piece" src="images/image10.png" alt="Art Piece 10" onclick="showFullScreen(this)">
+    <img class="art-piece" src="images/image11.png" alt="Art Piece 11" onclick="showFullScreen(this)">
+    <img class="art-piece" src="images/image12.png" alt="Art Piece 12" onclick="showFullScreen(this)">
+    <img class="art-piece" src="images/image13.png" alt="Art Piece 13" onclick="showFullScreen(this)">
+    <img class="art-piece" src="images/image14.png" alt="Art Piece 14" onclick="showFullScreen(this)">
+    <img class="art-piece" src="images/image15.png" alt="Art Piece 15" onclick="showFullScreen(this)">
+    <img class="art-piece" src="images/image16.png" alt="Art Piece 16" onclick="showFullScreen(this)">
+    <img class="art-piece" src="images/image17.png" alt="Art Piece 17" onclick="showFullScreen(this)">
+    <img class="art-piece" src="images/image18.png" alt="Art Piece 18" onclick="showFullScreen(this)">
+    <img class="art-piece" src="images/image19.png" alt="Art Piece 19" onclick="showFullScreen(this)">
+    <img class="art-piece" src="images/image20.png" alt="Art Piece 20" onclick="showFullScreen(this)">
+    <!-- other images... -->
+
   </div>
 
   <script>
-    const artPieces = document.querySelectorAll('.art-piece');
+    
+    function showFullScreen(img) {
 
-    artPieces.forEach(piece => {
-      piece.addEventListener('click', () => {
-        const img = piece.cloneNode(); 
-        img.classList.add('full-screen');
-        document.body.appendChild(img);
+      // Create full screen div
+      let fullScreen = document.createElement('div');
+      fullScreen.classList.add('full-screen');
 
-        const closeBtn = document.createElement('div');
-        closeBtn.classList.add('close-btn');
-        closeBtn.textContent = 'X';
-        closeBtn.addEventListener('click', () => {
-          document.body.removeChild(img);
-        })
-        img.appendChild(closeBtn);
-      });
-    });
+      // Append original image 
+      let fullScreenImg = img.cloneNode();
+      fullScreen.appendChild(fullScreenImg);
+
+      // Create close button
+      let close = document.createElement('div');
+      close.classList.add('close-btn');
+      close.textContent = 'X';
+      close.addEventListener('click', closeFullScreen);
+      fullScreen.appendChild(close);
+
+      // Append to body and show
+      document.body.appendChild(fullScreen);
+
+      function closeFullScreen() {
+        document.body.removeChild(fullScreen);
+      }
+
+    }
+
   </script>
 
 </body>
