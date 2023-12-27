@@ -1,159 +1,141 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Josh's Art Portfolio</title>
-    <style>
-        #gallery img {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            width: 200px;
-            height: auto;
-=======
-            width: 23%; /* Set an initial width for each image */
-            height: auto;
-            margin: 1%; /* Add a little margin between images */
->>>>>>> parent of 76fd020 (2.2)
-=======
-            width: 23%;
-            height: auto;
-            margin: 1%;
->>>>>>> parent of 8e8fbb2 (2.3)
-=======
-            width: 23%;
-            height: auto;
-            margin: 1%;
->>>>>>> parent of 8e8fbb2 (2.3)
-        }
-        #fullscreen {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-        }
-        #fullscreen img {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            max-width: 90%;
-            max-height: 90%;
-        }
-<<<<<<< HEAD
-=======
-        #header {
-            display: flex;
-            align-items: center;
-        }
-        #header img {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
-        }
->>>>>>> parent of 76fd020 (2.2)
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ramirez Family</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333333;
+    }
+    .family-tree {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .family-tree ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .family-tree li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .family-tree .person {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 2px solid #333333;
+      margin: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('family.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    .family-tree .name {
+      font-size: 16px;
+      font-weight: bold;
+      color: #ffffff;
+      text-shadow: 1px 1px 2px #000000;
+    }
+    .family-tree .line {
+      width: 2px;
+      height: 50px;
+      background-color: #333333;
+    }
+    .family-tree .branch {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .family-tree .branch .line {
+      width: 50px;
+      height: 2px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <img src="images/logo.png" alt="Logo">
-        <h1>Josh</h1>
-    </header>
-    <div id="gallery">
-        <!-- Images will be inserted here by JavaScript -->
+  <div class="container">
+    <h1>Ramirez Family</h1>
+    <div class="family-tree">
+      <ul>
+        <li>
+          <div class="person">
+            <div class="name">Grandpa</div>
+          </div>
+          <div class="line"></div>
+          <div class="branch">
+            <div class="line"></div>
+            <ul>
+              <li>
+                <div class="person">
+                  <div class="name">Dad</div>
+                </div>
+                <div class="line"></div>
+                <div class="branch">
+                  <div class="line"></div>
+                  <ul>
+                    <li>
+                      <div class="person">
+                        <div class="name">Me</div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="person">
+                        <div class="name">Sister</div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="line"></div>
+                </div>
+              </li>
+              <li>
+                <div class="person">
+                  <div class="name">Uncle</div>
+                </div>
+              </li>
+            </ul>
+            <div class="line"></div>
+          </div>
+        </li>
+        <li>
+          <div class="person">
+            <div class="name">Grandma</div>
+          </div>
+          <div class="line"></div>
+          <div class="branch">
+            <div class="line"></div>
+            <ul>
+              <li>
+                <div class="person">
+                  <div class="name">Mom</div>
+                </div>
+              </li>
+              <li>
+                <div class="person">
+                  <div class="name">Aunt</div>
+                </div>
+              </li>
+            </ul>
+            <div class="line"></div>
+          </div>
+        </li>
+      </ul>
     </div>
-    <div id="fullscreen">
-        <img src="" alt="Full Screen Image">
-    </div>
-    <script>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        // Generate gallery images using JavaScript
-        function generateGallery() {
-            const gallery = document.getElementById('gallery');
-            for (let i = 1; i <= 20; i++) {
-                let img = document.createElement('img');
-                img.src = 'images/image' + i + '.png';
-                img.onclick = function() {
-                    document.getElementById('fullscreen').style.display = 'block';
-                    document.getElementById('fullscreen').children[0].src = this.src;
-                };
-                gallery.appendChild(img);
-            }
-        }
-
-        generateGallery(); // Call the function to generate the gallery images.
-
-=======
-        // Generate gallery images
-        for (let i = 1; i <= 20; i++) {
-            let img = document.createElement('img');
-            img.src = 'images/image' + i + '.png';
-            img.onclick = function() {
-                document.getElementById('fullscreen').style.display = 'block';
-                document.getElementById('fullscreen').children[0].src = this.src;
-            };
-            document.getElementById('gallery').appendChild(img);
-        }
-
->>>>>>> parent of 76fd020 (2.2)
-=======
-        // Create a function to fetch and add gallery images
-        function addGalleryImages() {
-            const gallery = document.getElementById('gallery');
-            fetch('https://api.github.com/repos/Z3RG7/Z3RG7.github.io/contents/images')
-                .then(response => response.json())
-                .then(data => {
-                    data.forEach(imageData => {
-                        if (imageData.name.startsWith('image')) { // Filter images by filename pattern
-                            const img = document.createElement('img');
-                            img.src = imageData.download_url;
-                            img.onclick = function() {
-                                document.getElementById('fullscreen').style.display = 'block';
-                                document.getElementById('fullscreen').children[0].src = this.src;
-                            };
-                            gallery.appendChild(img);
-                        }
-                    });
-                });
-        }
-
-        // Call the function to add gallery images
-        addGalleryImages();
-        
->>>>>>> parent of 8e8fbb2 (2.3)
-=======
-        // Create a function to fetch and add gallery images
-        function addGalleryImages() {
-            const gallery = document.getElementById('gallery');
-            fetch('https://api.github.com/repos/Z3RG7/Z3RG7.github.io/contents/images')
-                .then(response => response.json())
-                .then(data => {
-                    data.forEach(imageData => {
-                        if (imageData.name.startsWith('image')) { // Filter images by filename pattern
-                            const img = document.createElement('img');
-                            img.src = imageData.download_url;
-                            img.onclick = function() {
-                                document.getElementById('fullscreen').style.display = 'block';
-                                document.getElementById('fullscreen').children[0].src = this.src;
-                            };
-                            gallery.appendChild(img);
-                        }
-                    });
-                });
-        }
-
-        // Call the function to add gallery images
-        addGalleryImages();
-        
->>>>>>> parent of 8e8fbb2 (2.3)
-        // Add fullscreen close functionality
-        document.getElementById('fullscreen').onclick = function() {
-            this.style display = 'none';
-        };
-    </script>
+  </div>
 </body>
 </html>
